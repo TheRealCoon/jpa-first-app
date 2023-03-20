@@ -1,0 +1,48 @@
+
+###
+POST http://localhost:8080/note
+
+###
+POST http://localhost:8080/patients
+Content-Type: application/json
+
+{
+  "name" : "Gipsz Jakab",
+  "date_of_birth": "1989-06-15"
+}
+
+###
+POST http://localhost:8080/patients
+Content-Type: application/json
+
+{
+  "name" : "A Gipsz Jakab",
+  "date_of_birth": "1989-06-15"
+}
+
+###
+POST http://localhost:8080/patients
+Content-Type: application/json
+
+{
+  "name" : "Gipsz Jakab 2",
+  "date_of_birth": "1989-06-16"
+}
+
+###
+POST http://localhost:8080/patients
+Content-Type: application/json
+
+{
+  "name" : "John Doe",
+  "date_of_birth": "1989-06-17"
+}
+
+###
+GET http://localhost:8080/patients
+
+###
+GET http://localhost:8080/patients?name=Gi
+
+###
+GET http://localhost:8080/patients?date=1989-06-15
