@@ -1,6 +1,6 @@
 package com.codecool.jpa.medicinejpa.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 import lombok.*;
@@ -11,13 +11,13 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = "doctor")
 
 @Entity
 public class Patient {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String name;
     @JsonProperty("date_of_birth")
@@ -25,7 +25,7 @@ public class Patient {
     private LocalDate dateOfBirth;
     @ManyToOne
     @JoinColumn(name = "doctor_id")
-    @JsonIgnore
+    @JsonManagedReference
     private Doctor doctor;
 
 }

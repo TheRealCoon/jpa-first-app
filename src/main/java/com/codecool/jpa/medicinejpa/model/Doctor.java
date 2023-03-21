@@ -1,6 +1,9 @@
 package com.codecool.jpa.medicinejpa.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,9 +18,11 @@ import java.util.List;
 @Entity
 public class Doctor {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String Name;
     @OneToMany(mappedBy = "doctor")
+    @JsonBackReference
     private List<Patient> patients;
     @Enumerated(EnumType.STRING)
     private DoctorType doctorType;
