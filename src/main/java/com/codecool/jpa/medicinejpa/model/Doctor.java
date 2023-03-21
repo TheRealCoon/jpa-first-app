@@ -1,8 +1,6 @@
 package com.codecool.jpa.medicinejpa.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -21,5 +19,6 @@ public class Doctor {
     private String Name;
     @OneToMany(mappedBy = "doctor")
     private List<Patient> patients;
+    @Enumerated(EnumType.STRING)
     private DoctorType doctorType;
 }
