@@ -20,6 +20,9 @@ public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @NotBlank
+    @Size(min = 5)
     private String Name;
     @OneToMany(mappedBy = "doctor")
     @JsonBackReference

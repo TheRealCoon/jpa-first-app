@@ -2,13 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>page</title>
+    <title>Doctors</title>
+    <style>
+        .error {
+            border: 1px solid red;
+        }
+
+        .error:after {
+            content: " - *";
+        }
+    </style>
 </head>
+
 <body>
 Doctors:
 <ul>
-    <li th:each="doctor:${doctors}" th:text = "${doctor.getName()}"></li>
+    <li th:each="doctor:${doctors}" th:text="${doctor.name}"></li>
 </ul>
+<form method="post" th:object="${doctor}">
+    <label for="new_doctor_name">Name:</label>
+    <input id="new_doctor_name" name="name" th:field="*{name}" th.errorClass="error">
+    <p th:if="${#fields.hasErrors('name')}" th:errorclass="error" th:errors="*{name}"></p>
+    <br/>
+    <label for="new_doctor_type">Type:</label>
+    <select id="new_doctor_type" name="doctor_type" th:field="*{doctorType}">
+        <option th:each="dt:${doctor_types}" th:text="${dt.toString()}" th:value="${dt}"></option>
+    </select>
+    <br/>
+    <button type="submit">Submit</button>
 
+</form>
 </body>
 </html>
