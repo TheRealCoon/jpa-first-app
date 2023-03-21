@@ -21,4 +21,5 @@ public class Doctor {
     private String Name;
     @OneToMany(mappedBy = "doctor")
     private List<Patient> patients;
+    private DoctorType doctorType;
 }
