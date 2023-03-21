@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>page</title>
+</head>
+<body>
+Doctors:
+<ul>
+    <li th:each="doctor:${doctors}" th:text = "${doctor.getName()}"></li>
+</ul>
+
+</body>
+</html>
