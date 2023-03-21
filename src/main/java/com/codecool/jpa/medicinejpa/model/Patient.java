@@ -22,6 +22,7 @@ public class Patient {
     private Integer id;
     private String name;
     @JsonProperty("date_of_birth")
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
 }
