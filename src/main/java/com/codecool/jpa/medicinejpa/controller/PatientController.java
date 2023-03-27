@@ -31,4 +31,5 @@ public class PatientController {
     public void addNewPatient(@RequestBody Patient patient){
         patientDao.save(patient);
     }
+
 }
